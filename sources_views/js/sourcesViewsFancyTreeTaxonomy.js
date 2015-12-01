@@ -45,6 +45,7 @@ Drupal.behaviors.sourcesViewsInitializeBreadcrumbCollectionListFancyTree = {
 
     // Build each breadcrumb child collection items into fancytree
     function sources_views_build_fancytree_breadcrumb_taxonomy(fancytree_breadcrumb_container_id, collection_data_url) {
+    	  if ($(fancytree_breadcrumb_container_id).length == 0 ) { return; }
       $(fancytree_breadcrumb_container_id).fancytree({
         source: {
           url: collection_data_url,
