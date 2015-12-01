@@ -5,6 +5,7 @@
 (function ($) {
 Drupal.behaviors.sourcesViewsInitializeCollectionListFancyTree = {
   attach: function (context, settings) {
+  	if ($('.taxonomy-list-tree').length == 0) { return; }
     $('.taxonomy-list-tree').fancytree({
       source: {
         url: sources_views_get_collection_source_path(),
