@@ -20,6 +20,7 @@ function sources_views_custom_breadcrumbs() {
  */
 function sources_views_get_contextual_breadcrumbs() {
   $field_zotero_tags = isset($_GET['field_zotero_tags']) ? $_GET['field_zotero_tags'] : FALSE;
+  $breadcrumb = array('name' => '', 'tid' => 0);
   if (sources_views_is_search()) {
     $breadcrumb = array('name' => t('Search Results'), 'tid' => 0);
   }
@@ -44,6 +45,7 @@ function sources_views_theme_breadcrumbs($breadcrumbs) {
   $html = "<ol class='breadcrumb'><li><a href='#' term_id='all'>Sources:</a></li>";
   unset($breadcrumbs['theme_hook_suggestions']);
   foreach ($breadcrumbs as $index => $breadcrumb) {
+  	if (!isset($breadcrumb->tid)) { continue; }
     $term_id = $breadcrumb->tid;
     $html .= "<li><a href='#' term_id='" . $term_id ."'>". $breadcrumb->name ."</a>";
     if ($index != (count($breadcrumbs) - 1)) {

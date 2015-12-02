@@ -18,7 +18,7 @@
     attach: function (context, settings) {
       $('#edit-advanced-biblio-publication-type').change(function() {
         $('#edit-biblio-publication-type').val($(this).val());
-        set_search_flyout_source_type_filter_text()
+        set_search_flyout_source_type_filter_text();
       });
     }
   };
@@ -52,6 +52,8 @@
 
   Drupal.behaviors.sourcesViewsSearchFlyoutInitializePublicationYearSlider = {
     attach: function (context, settings) {
+    	  // Leave if there is no slider dropdown div 
+    	  if ( $('#date-range-slider-dropdown').length == 0 ) { return; }
       var selected_publication_year_option = $('input[name=advanced_search_publication_year]:checked').val();
       // Set publication year default start year and end year values
       if (selected_publication_year_option != 'range') {

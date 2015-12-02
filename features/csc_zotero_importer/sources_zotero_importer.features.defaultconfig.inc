@@ -2295,7 +2295,7 @@ function sources_zotero_importer_defaultconfig_feeds_importer_default() {
             'unique' => FALSE,
           ),
         ),
-        'input_format' => 'panopoly_wysiwyg_text',
+        'input_format' => 'full_html',
         'author' => 0,
         'sync_tags' => '1',
         'authorize' => 1,

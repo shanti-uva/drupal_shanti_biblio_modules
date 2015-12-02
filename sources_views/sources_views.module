@@ -608,34 +608,34 @@ function sources_views_advanced_search_form($form, &$form_state) {
     '#autocomplete_path' => 'biblio/authors/list_callback',
     '#title' => t('Author'),
     '#attributes' => array('class' => array('form-control')),
-    '#default_value' => $_GET['search_text_biblio_author'],
+    '#default_value' => _sources_views_get_get_variable('search_text_biblio_author'),
   );
   $form['advanced_option']['search_text_biblio_publisher'] = array(
     '#type' => 'textfield',
     '#autocomplete_path' => 'biblio/publishers/list_callback',
     '#title' => t('Publisher'),
     '#attributes' => array('class' => array('form-control')),
-    '#default_value' => $_GET['search_text_biblio_publisher'],
+    '#default_value' => _sources_views_get_get_variable('search_text_biblio_publisher'),
   );
   $form['advanced_option']['search_text_biblio_publish_place'] = array(
     '#type' => 'textfield',
     '#autocomplete_path' => 'biblio/place_published/list_callback',
     '#title' => t('Place of Publication'),
     '#attributes' => array('class' => array('form-control')),
-    '#default_value' => $_GET['search_text_biblio_publish_place'],
+    '#default_value' => _sources_views_get_get_variable('search_text_biblio_publish_place'),
   );
   $form['advanced_option']['search_text_biblio_abstract'] = array(
     '#type' => 'textfield',
     '#title' => t('Words in Abstract'),
     '#attributes' => array('class' => array('form-control')),
-    '#default_value' => $_GET['search_text_biblio_abstract'],
+    '#default_value' => _sources_views_get_get_variable('search_text_biblio_abstract'),
   );
   $form['advanced_option']['search_text_zotero_tags'] = array(
     '#type' => 'textfield',
     '#autocomplete_path' => 'biblio/tags/list_callback',
     '#title' => t('Tags'),
     '#attributes' => array('class' => array('form-control')),
-    '#default_value' => $_GET['search_text_zotero_tags'],
+    '#default_value' => _sources_views_get_get_variable('search_text_zotero_tags'),
   );
   $form['advanced_option']['submit'] = array(
     '#type' => 'submit',
@@ -650,6 +650,10 @@ function sources_views_advanced_search_form($form, &$form_state) {
     '#markup' => sources_views_get_unfiltered_min_max_year('views-attach'),
   );
   return $form;
+}
+
+function _sources_views_get_get_variable($varname) {
+	return (isset($_GET[$varname])) ? $_GET[$varname] : '';
 }
 
 /**
@@ -743,7 +747,7 @@ function sources_views_preprocess_page(&$vars) {
 function sources_views_set_page_title() {
   $current_nid = isset($_GET['current_nid']) ? $_GET['current_nid'] : FALSE;
   $field_zotero_tags = isset($_GET['field_zotero_tags']) ? $_GET['field_zotero_tags'] : FALSE;
-
+  
   if ($current_nid) {
     $current_node = node_load($current_nid);
     $title = $current_node->title;
@@ -755,8 +759,9 @@ function sources_views_set_page_title() {
     $term = taxonomy_term_load($field_zotero_tags);
     $title = $term->name;
   }
-
-  drupal_set_title($title);
+  if (isset($title)) {
+	  drupal_set_title($title);
+  }
 }
 
 function sources_views_get_search_page_title() {
@@ -1102,7 +1107,9 @@ function sources_views_get_collection_vocabulary_id() {
  * Implements hook_js_alter().
  */
 function sources_views_js_alter(&$javascript) {
-  $javascript['profiles/panopoly/modules/panopoly/panopoly_widgets/panopoly-widgets.js']['scope'] = 'header';
-  $javascript['profiles/panopoly/modules/panopoly/panopoly_widgets/jquery-ui-tabs-rotate.js']['scope'] = 'header';
+	// Panopoly has bee removed from site. So no longer applicable (ndg, 2015-12-02)
+	// TODO: Do we need to replace these?
+  //$javascript['profiles/panopoly/modules/panopoly/panopoly_widgets/panopoly-widgets.js']['scope'] = 'header';
+  //$javascript['profiles/panopoly/modules/panopoly/panopoly_widgets/jquery-ui-tabs-rotate.js']['scope'] = 'header';
 }
 
