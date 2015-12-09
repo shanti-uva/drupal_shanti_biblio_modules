@@ -588,6 +588,9 @@ function sources_views_advanced_search_form($form, &$form_state) {
     ),
     '#default_value' => $default_publication_option,
   );
+  $form['advanced_option']['advanced_search_publication_year_slider'] = array(
+    '#markup' => '<div id="date-range-slider-dropdown-container"><div id="date-range-slider-dropdown"></div></div>',
+  );
   $form['advanced_option']['advanced_search_start_year'] = array(
     '#type' => 'textfield',
     '#default_value' => $default_publication_year_start,

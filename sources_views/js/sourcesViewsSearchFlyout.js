@@ -53,7 +53,7 @@
   Drupal.behaviors.sourcesViewsSearchFlyoutInitializePublicationYearSlider = {
     attach: function (context, settings) {
     	  // Leave if there is no slider dropdown div 
-    	  if ( $('#date-range-slider-dropdown').length == 0 ) { return; }
+    	 if ( $('#date-range-slider-dropdown').length == 0 ) { return; }
       var selected_publication_year_option = $('input[name=advanced_search_publication_year]:checked').val();
       // Set publication year default start year and end year values
       if (selected_publication_year_option != 'range') {
@@ -66,7 +66,8 @@
         var default_publication_end_year = get_publication_end_year();
       }
       // Initialize publication year slider
-      $('#edit-advanced-search-publication-year').append('<div id="date-range-slider-dropdown-container"><div id="date-range-slider-dropdown"></div></div>');
+      // Markup below added in advance search form funcion in sources_views.module:
+      //$('#edit-advanced-search-publication-year').append('<div id="date-range-slider-dropdown-container"><div id="date-range-slider-dropdown"></div></div>');
       $('#date-range-slider-dropdown').slider({
         range: true,
         min: get_default_publication_start_year(),
