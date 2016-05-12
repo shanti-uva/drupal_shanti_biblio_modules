@@ -1,6 +1,5 @@
-name = Sources custom views module
-description = Custom views module for Sources site.
+name = Sources miscellaneous custom module
+description = Custom for miscellaneous functions for the Sources site
 package = Sources
 core = 7.x
-stylesheets[all][] = sources_views.css
 
