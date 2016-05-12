@@ -1,0 +1,20 @@
+<?php
+/**
+ * @file
+ * Miscellaneous functions for Shanti Sources site.
+ */
+
+function sources_misc_init() {
+}
+
+/**
+ * Implements hook admin paths
+ * 
+ *  Define custom paths that are either admins or not. Use Shanti theme and JS for group admin
+ */
+function sources_misc_admin_paths_alter(&$paths) {
+    $paths['node/*/group'] = FALSE;
+    $paths['group/*/*/admin/*'] = FALSE;
+}
+  
+  
