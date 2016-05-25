@@ -4,9 +4,37 @@
  * Miscellaneous functions for Shanti Sources site.
  */
 
-function sources_misc_init() {
+
+function sources_misc_menu() {
+      $items['group/%/%/admin/people/view'] = array(
+       'access callback' => TRUE,
+        'page callback' => 'sources_misc_grouptabs',
+        'page arguments' => array(2, 'view'),
+        'title' => 'View',
+        'weight' => 1,
+        'type' => MENU_LOCAL_TASK,
+      );
+    $items['group/%/%/admin/people/admin'] = array(
+       'access callback' => TRUE,
+        'page callback' => 'sources_misc_grouptabs',
+        'page arguments' => array(2, 'admin'),
+        'title' => 'Members',
+        'weight' => 2,
+        'type' => MENU_LOCAL_TASK,
+      );
+      return $items;
 }
 
+function sources_misc_grouptabs($nid, $mode) {
+      $url = "node/$nid";
+      if ($mode == 'admin') {
+          $url .= "/group";
+          drupal_goto($url);
+      } else if ($mode == 'view') {
+          drupal_goto($url);
+      }
+  }
+  
 /**
  * Implements hook admin paths
  * 
