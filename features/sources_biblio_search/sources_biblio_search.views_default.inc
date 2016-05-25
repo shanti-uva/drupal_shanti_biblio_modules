@@ -114,7 +114,7 @@ function sources_biblio_search_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<br>';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
-  /* Sort criterion: Broken/missing handler */
+  /* Sort criterion: Indexed Node: Author */
   $handler->display->display_options['sorts']['author']['id'] = 'author';
   $handler->display->display_options['sorts']['author']['table'] = 'search_api_index_database_node_index';
   $handler->display->display_options['sorts']['author']['field'] = 'author';
@@ -973,14 +973,33 @@ function sources_biblio_search_views_default_views() {
   $handler->display->display_options['fields']['field_biblio_long_title']['label'] = 'Title';
   $handler->display->display_options['fields']['field_biblio_long_title']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_biblio_long_title']['empty_zero'] = TRUE;
-  /* Field: Indexed Node: Biblio Language */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_biblio_language']['id'] = 'field_biblio_language';
   $handler->display->display_options['fields']['field_biblio_language']['table'] = 'search_api_index_database_node_index';
   $handler->display->display_options['fields']['field_biblio_language']['field'] = 'field_biblio_language';
   $handler->display->display_options['fields']['field_biblio_language']['label'] = 'Language(s)';
   $handler->display->display_options['fields']['field_biblio_language']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_biblio_language']['empty_zero'] = TRUE;
-  $handler->display->display_options['fields']['field_biblio_language']['delta_offset'] = '0';
+  /* Field: Indexed Node: Places */
+  $handler->display->display_options['fields']['field_kmaps_places']['id'] = 'field_kmaps_places';
+  $handler->display->display_options['fields']['field_kmaps_places']['table'] = 'search_api_index_database_node_index';
+  $handler->display->display_options['fields']['field_kmaps_places']['field'] = 'field_kmaps_places';
+  $handler->display->display_options['fields']['field_kmaps_places']['click_sort_column'] = 'raw';
+  $handler->display->display_options['fields']['field_kmaps_places']['type'] = 'kmap_popover_formatter';
+  $handler->display->display_options['fields']['field_kmaps_places']['settings'] = array(
+    'target' => '_blank',
+  );
+  $handler->display->display_options['fields']['field_kmaps_places']['delta_offset'] = '0';
+  /* Field: Indexed Node: Subjects */
+  $handler->display->display_options['fields']['field_kmaps_subjects']['id'] = 'field_kmaps_subjects';
+  $handler->display->display_options['fields']['field_kmaps_subjects']['table'] = 'search_api_index_database_node_index';
+  $handler->display->display_options['fields']['field_kmaps_subjects']['field'] = 'field_kmaps_subjects';
+  $handler->display->display_options['fields']['field_kmaps_subjects']['click_sort_column'] = 'raw';
+  $handler->display->display_options['fields']['field_kmaps_subjects']['type'] = 'kmap_popover_formatter';
+  $handler->display->display_options['fields']['field_kmaps_subjects']['settings'] = array(
+    'target' => '_blank',
+  );
+  $handler->display->display_options['fields']['field_kmaps_subjects']['delta_offset'] = '0';
   /* Field: Content: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';

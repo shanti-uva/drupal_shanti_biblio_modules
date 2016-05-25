@@ -20,17 +20,6 @@ function sources_biblio_search_user_default_permissions() {
     'module' => 'biblio',
   );
 
-  // Exported permission: 'access content'.
-  $permissions['access content'] = array(
-    'name' => 'access content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'view files'.
   $permissions['view files'] = array(
     'name' => 'view files',
