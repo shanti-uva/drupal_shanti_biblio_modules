@@ -973,13 +973,13 @@ function sources_biblio_search_views_default_views() {
   $handler->display->display_options['fields']['field_biblio_long_title']['label'] = 'Title';
   $handler->display->display_options['fields']['field_biblio_long_title']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_biblio_long_title']['empty_zero'] = TRUE;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_biblio_language']['id'] = 'field_biblio_language';
-  $handler->display->display_options['fields']['field_biblio_language']['table'] = 'search_api_index_database_node_index';
-  $handler->display->display_options['fields']['field_biblio_language']['field'] = 'field_biblio_language';
-  $handler->display->display_options['fields']['field_biblio_language']['label'] = 'Language(s)';
-  $handler->display->display_options['fields']['field_biblio_language']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_biblio_language']['empty_zero'] = TRUE;
+  /* Field: Indexed Node: Language */
+  $handler->display->display_options['fields']['language']['id'] = 'language';
+  $handler->display->display_options['fields']['language']['table'] = 'search_api_index_database_node_index';
+  $handler->display->display_options['fields']['language']['field'] = 'language';
+  $handler->display->display_options['fields']['language']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['language']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['language']['format_name'] = 1;
   /* Field: Indexed Node: Places */
   $handler->display->display_options['fields']['field_kmaps_places']['id'] = 'field_kmaps_places';
   $handler->display->display_options['fields']['field_kmaps_places']['table'] = 'search_api_index_database_node_index';
