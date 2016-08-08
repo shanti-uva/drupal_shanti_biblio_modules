@@ -3,6 +3,7 @@
     <div class="search-group">
       <div class="input-group views-exposed-widgets" id="searcharea">
         <?php print render($form['advanced_search_api_views_fulltext']); ?>
+          <span class="icon shanticon-magnify"></span>
         <span class="input-group-btn">
           <button type="button" class="btn btn-default" id="searchbutton"><span class="icon"></span></button>
           <button type="reset" class="btn searchreset"><span class="icon"></span></button>
