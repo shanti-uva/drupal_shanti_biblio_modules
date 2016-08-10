@@ -24,7 +24,7 @@
     <div class="tab-content">
       <!-- TAB - tree view -->
       <div class="treeview tab-pane">
-        <div class="taxonomy-list-tree"></div>
+        <div class="taxonomy-list-tree view-wrap"></div>
       </div>
       <!-- TAB - list view -->
       <div class="listview tab-pane active">
